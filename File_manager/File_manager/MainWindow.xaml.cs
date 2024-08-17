@@ -12,7 +12,7 @@ namespace SimpleFileManager
         public MainWindow()
         {
             InitializeComponent();
-            currentPath = "C:\\";
+            currentPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             LoadTreeView(currentPath);
         }
 
@@ -100,7 +100,7 @@ namespace SimpleFileManager
 
         private void CreateFolderButton_Click(object sender, RoutedEventArgs e)
         {
-            string newFolderName = "New Folder";
+            string newFolderName = PromtForNewItem();
             string newFolderPath = Path.Combine(currentPath, newFolderName);
             int count = 1;
 
@@ -110,6 +110,19 @@ namespace SimpleFileManager
             }
 
             Directory.CreateDirectory(newFolderPath);
+            RefreshTreeView();
+        }
+        private void CreateFileButton_Click(object sender, RoutedEventArgs e)
+        {
+            string newFileName = PromtForNewItem();
+            string newFilePath = Path.Combine(currentPath, newFileName);
+            int count = 1;
+
+            while (File.Exists(newFilePath))
+            {
+                newFilePath = Path.Combine(currentPath, $"{newFileName} ({count++})");
+            }
+            using (StreamWriter sw = File.CreateText(newFilePath)) ;
             RefreshTreeView();
         }
 
@@ -180,6 +193,15 @@ namespace SimpleFileManager
         private string PromptForNewName(string currentName)
         {
             InputDialog inputDialog = new InputDialog("Enter new name:", currentName);
+            if (inputDialog.ShowDialog() == true)
+            {
+                return inputDialog.ResponseText;
+            }
+            return null;
+        }
+        private string PromtForNewItem()
+        {
+            InputDialog inputDialog = new InputDialog("Enter name:");
             if (inputDialog.ShowDialog() == true)
             {
                 return inputDialog.ResponseText;

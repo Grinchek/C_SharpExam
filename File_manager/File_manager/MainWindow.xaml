@@ -32,9 +32,10 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,10" Width="280">
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,10" Width="758" Grid.ColumnSpan="2">
             <Button Content="←" Width="40" Click="BackButton_Click"/>
             <Button Content="Create Folder" Width="80" Click="CreateFolderButton_Click"/>
+            <Button Content="Create File" Width="80" Click="CreateFileButton_Click"/>
             <Button Content="Delete" Width="80" Click="DeleteButton_Click"/>
             <Button Content="Rename" Width="80" Click="RenameButton_Click"/>
         </StackPanel>
