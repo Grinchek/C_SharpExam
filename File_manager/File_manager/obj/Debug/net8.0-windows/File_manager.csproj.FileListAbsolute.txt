@@ -20,3 +20,6 @@ C:\Users\User\Desktop\C_sharp\File_manager\File_manager\obj\Debug\net8.0-windows
 C:\Users\User\Desktop\C_sharp\File_manager\File_manager\obj\Debug\net8.0-windows\File_manager.sourcelink.json
 C:\Users\User\Desktop\C_sharp\File_manager\File_manager\obj\Debug\net8.0-windows\InputDialog.baml
 C:\Users\User\Desktop\C_sharp\File_manager\File_manager\obj\Debug\net8.0-windows\InputDialog.g.cs
+C:\Users\User\Desktop\C_sharp\File_manager\File_manager\obj\Debug\net8.0-windows\Aproof.g.cs
+C:\Users\User\Desktop\C_sharp\File_manager\File_manager\obj\Debug\net8.0-windows\File_manager_MarkupCompile.lref
+C:\Users\User\Desktop\C_sharp\File_manager\File_manager\obj\Debug\net8.0-windows\Aproof.baml

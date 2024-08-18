@@ -128,27 +128,41 @@ namespace SimpleFileManager
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            if (FileList.SelectedItem != null)
+            bool decision = PromtForDeleteItem();
+            if (decision)
             {
-                string selectedFile = FileList.SelectedItem.ToString();
-                string filePath = Path.Combine(currentPath, selectedFile);
 
-                if (File.Exists(filePath))
+                if (FileList.SelectedItem != null)
                 {
-                    File.Delete(filePath);
-                    LoadFiles(currentPath);
-                }
-            }
-            else if (FolderTreeView.SelectedItem != null)
-            {
-                TreeViewItem selectedItem = FolderTreeView.SelectedItem as TreeViewItem;
-                string selectedPath = selectedItem.Tag.ToString();
 
-                if (Directory.Exists(selectedPath))
-                {
-                    Directory.Delete(selectedPath, true);
-                    RefreshTreeView();
+                    string selectedFile = FileList.SelectedItem.ToString();
+                    string filePath = Path.Combine(currentPath, selectedFile);
+
+                    if (File.Exists(filePath))
+                    {
+
+                        File.Delete(filePath);
+                        LoadFiles(currentPath);
+
+                    }
                 }
+
+
+                else if (FolderTreeView.SelectedItem != null)
+                {
+                    TreeViewItem selectedItem = FolderTreeView.SelectedItem as TreeViewItem;
+                    string selectedPath = selectedItem.Tag.ToString();
+
+                    if (Directory.Exists(selectedPath))
+                    {
+
+                        Directory.Delete(selectedPath, true);
+                        RefreshTreeView();
+
+
+                    }
+                }
+
             }
         }
 
@@ -207,6 +221,15 @@ namespace SimpleFileManager
                 return inputDialog.ResponseText;
             }
             return null;
+        }
+        private bool PromtForDeleteItem()
+        {
+            Aproof aproofDialog = new Aproof("Are you shoure");
+            if (aproofDialog.ShowDialog() == true)
+            {
+                return true;
+            }
+            return false;
         }
 
         private void RefreshTreeView()
