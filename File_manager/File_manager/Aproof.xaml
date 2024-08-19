@@ -19,7 +19,7 @@
 
         <TextBlock Text="{Binding Message}" Grid.Row="0" Grid.Column="0" Margin="0,-34,0,44" Grid.ColumnSpan="2"/>
 
-        <Button Content="Cancel" IsDefault="True" Click="CancelButton_Click" Grid.Column="0" Width="80" Margin="112,2,0,16" HorizontalAlignment="Left" Height="30"/>
+        <Button Content="Cancel" IsDefault="False" Click="CancelButton_Click" Grid.Column="0" Width="80" Margin="112,2,0,16" HorizontalAlignment="Left" Height="30"/>
 
         <Button Content="OK" IsDefault="True" Click="OkButton_Click" Width="80" Margin="26,2,110,16" Height="30" Grid.Column="2"/>
     </Grid>

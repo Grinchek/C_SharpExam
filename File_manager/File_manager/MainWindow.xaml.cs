@@ -155,9 +155,23 @@ namespace SimpleFileManager
 
                     if (Directory.Exists(selectedPath))
                     {
+                        if (Directory.GetFiles(selectedPath).Length > 0)
+                        {
+                            if (MessageBox.Show("Directory has includet files. Do you want to delete this folder?", "Warning", MessageBoxButton.YesNo)== MessageBoxResult.Yes)
+                            {
+                                Directory.Delete(selectedPath, true);
+                               
+                            }
 
-                        Directory.Delete(selectedPath, true);
+                        }
+                        else
+                        {
+                            Directory.Delete(selectedPath, true);
+                        }
+
+                        
                         RefreshTreeView();
+
 
 
                     }
